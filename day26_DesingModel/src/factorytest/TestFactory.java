@@ -14,7 +14,7 @@ public class TestFactory {
         airBox.condition();
         IFridge fridge = mediaFactory.createFridge();
         fridge.cold();
-        test1();
+
         test2();
     }
 
@@ -27,12 +27,5 @@ public class TestFactory {
         System.out.println(b);
     }
 
-    private static void test1() {
-        int a = 9;
-        ++a;
-        System.out.println(a);
 
-//        Object o = null;
-//        o.toString();
-    }
 }
