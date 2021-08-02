@@ -33,7 +33,6 @@ public class TestFactory {
         ++a;
         ++a;
         ++a;
-        ++c;
         System.out.println(a);
 
 //        Object o = null;
