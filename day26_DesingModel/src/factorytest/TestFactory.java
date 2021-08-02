@@ -30,6 +30,8 @@ public class TestFactory {
     private static void test1() {
         int a = 9;
         int c = 1;
+        int d = 99;
+        d++;
         ++a;
         ++a;
         ++a;
