@@ -29,10 +29,11 @@ public class TestFactory {
 
     private static void test1() {
         int a = 9;
+        int c = 1;
         ++a;
         ++a;
         ++a;
-        ++a;
+        ++c;
         System.out.println(a);
 
 //        Object o = null;
