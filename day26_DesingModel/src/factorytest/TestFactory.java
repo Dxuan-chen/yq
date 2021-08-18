@@ -34,7 +34,6 @@ public class TestFactory {
         d++;
         ++a;
         ++a;
-        ++a;
         System.out.println(a);
 
 //        Object o = null;
