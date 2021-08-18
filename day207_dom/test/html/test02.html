@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<html>
+<body>
+<ul>
+    <li>111</li>
+    <li>222</li>
+    <li>333</li>
+    <li>444</li>
+    <li>555</li>
+    <li>666</li>
+    <li>777</li>
+    <li>888</li>
+</ul>
+</body>
+</html>
+
+    <script>
+        var ulElement = document.getElementsByTagName('ul').item(0);
+        var lis = ulElement.childNodes;
+
+        for(var i = 0;i < lis.length;i ++){
+            if(lis[i].nodeType!=3){
+                console.log(lis[i].childNodes.item(0));
+            }
+
+        }
+
+    </script>
+</body>
+</html>

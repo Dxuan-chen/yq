@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="seller">
+        <h3>商家名</h3><span class="distance">30</span>
+    </div>
+    <div class="seller">
+        <h3>KFC</h3><span class="distance">1800</span>
+    </div>
+    <div class="seller">
+        <h3>麦当劳</h3><span class="distance">600</span>
+    </div>
+    <div class="seller">
+        <h3>汉堡王</h3><span class="distance">2752</span>
+    </div>
+    <div class="seller">
+        <h3>海底捞</h3><span class="distance">4412</span>
+    </div>
+    <div class="seller">
+        <h3>喜茶</h3><span class="distance">5300</span>
+    </div>
+
+    <script type="text/javascript">
+
+        var sellerObjs = document.querySelectorAll('.seller');
+        var distanceObj01 = sellerObjs.item(0).childNodes.item(2);
+        distanceObj01.textContent = '<50m';
+
+        var distanceObj02 = sellerObjs.item(1).childNodes.item(2);
+        distanceObj02.textContent = '1.8km';
+
+        var distanceObj03 = sellerObjs.item(2).childNodes.item(2);
+        distanceObj03.textContent = '600m';
+
+        var distanceObj04 = sellerObjs.item(3).childNodes.item(2);
+        distanceObj04.textContent = '2.7km';
+
+        var distanceObj05 = sellerObjs.item(4).childNodes.item(2);
+        distanceObj05.textContent = '4.4km';
+
+        var distanceObj06 = sellerObjs.item(5).childNodes.item(2);
+        distanceObj06.textContent = '5.3km';
+
+    </script>
+
+</body>
+</html>

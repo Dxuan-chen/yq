@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        function Coffee(name) {
+            
+            var _size;
+            
+            function setSize(n) {
+                size=n;
+            }
+            
+            function getSize() {
+                if(size === 8){
+                    return 'small';
+                }else if(size === 12){
+                    return 'medium';
+                }else if(size === 16){
+                    return 'large';
+                }
+            }
+            
+            function toString() {
+                if(size === 8){
+                    return 'You\'ve ordered a small House Blend coffee.';
+                }else if(size === 12){
+                    return 'You\'ve ordered a medium House Blend coffee.';
+                }else if(size === 18){
+                    return 'You\'ve ordered a large DarkRoast coffee.';
+                }
+            }
+
+            return {
+                name: name,
+                setSize: setSize,
+                getSize: getSize,
+                toString: toString
+            };
+
+        }
+
+        var cof = Coffee('cc');
+        cof.setSize(12);
+        console.log(cof.getSize());
+        console.log(cof.toString());
+        
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+        function Animal() {
+            this.species = "动物";
+            this.run = function(){
+                console.log("动物跑步！！！");
+            };
+        };
+
+        function Cat(name,color) {
+            this.name = name;
+            this.color = color;
+
+            this.run = function () {
+                console.log("猫跑步！！！");
+            };
+        };
+
+        //将父类对象直接赋值给子类原型对象
+        Cat.prototype = new Animal();
+        //Cat的构造器重新初始化为Cat构造器
+        Cat.prototype.constructor = Cat;
+
+        var c = new Cat('lily','red');
+        console.log(c.species);
+
+        c.run();
+        console.log(c);
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

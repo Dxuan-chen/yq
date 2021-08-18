@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        /*手机对象*/
+        function Phone(systemVersion) {
+            this.systemVersion = systemVersion;
+
+            this.showVersion  = function() {
+                console.log(this.systemVersion);
+            };
+
+            this.runApp = function (app) {
+                if(app.version > this.systemVersion){
+                    console.log('当前手机不支持此app请更新版本');
+                }else {
+                    console.log(app.contents);
+                }
+            };
+
+            this.updateSystemVersion = function(version){
+                this.systemVersion = version;
+            };
+
+
+        }
+
+        var phone1 = new Phone(3);
+        phone1.showVersion();
+        phone1.runApp({name: 'iphone',version: 4,contents: '苹果手机'});
+        phone1.updateSystemVersion(4);
+        phone1.showVersion();
+        phone1.runApp({name: 'iphone',version: 4,contents: '苹果手机'});
+
+    </script>
+
+</head>
+<body>
+<!--本题考查的是对闭包的理解，私有变量systemVersion可以使用闭包的形式，将变量存储起来提供给对象使用，保证外部无法直接访问该值-->
+
+<!--**要求**：-->
+
+<!--1. 创建一个手机对象-->
+<!--2. 要求使用闭包实现一个私有变量systemVersion 保存当前手机系统版本-->
+<!--3. 对象包含方法showVersion 打印输出当前手机私有变量systemVersion值-->
+<!--4. 对象包含方法runApp, 该方法接受一个参数 app, app值是一个对象包含app名、app支持版本，app内容（一段字符串）-->
+<!--1. 若当前app支持版本高于 systemVersion 输出当前手机不支持此app请更新版本-->
+<!--2. 若当前app支持版本小于等于 systemVersion 输出当前app的内容-->
+<!--5. 对象包含updateSystemVersion 方法接受一个参数 version，可以更新当前手机对象私有变量systemVersion值-->
+</body>
+</html>

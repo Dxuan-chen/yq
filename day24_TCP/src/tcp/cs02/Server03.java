@@ -20,7 +20,6 @@ public class Server03 {
             Socket client = server.accept();
             //每个客户端连接启动一个线程任务，解决多个客户端不能一起与服务器交互问题
             new Thread(() -> {
-
             try {
                 InputStream is = client.getInputStream();
                 BufferedInputStream inputStream = new BufferedInputStream(is);

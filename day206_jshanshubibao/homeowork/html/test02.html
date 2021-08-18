@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+        function Person(name,address,telephone,email) {
+            this.name = name;
+            this.address = address;
+            this.telephone = telephone;
+            this.email = email;
+
+            this.run = function () {
+                console.log('person跑');
+            }
+        }
+        
+        function Employee(office,wage,hiredate) {
+            this.office = office;
+            this.wage = wage;
+            this.hiredate = hiredate;
+
+            this.run = function () {
+                console.log('employee跑');
+            }
+        }
+
+        function Faculty(degree,level){
+            this.degree = degree;
+            this.level = level;
+        }
+
+        function Staff(duty){
+            this.duty = duty;
+        }
+
+        Employee.prototype = new Person();
+        Employee.prototype.constructor = Employee;
+
+        Faculty.prototype = new Employee();
+        Faculty.prototype.constructor = Employee;
+
+        Staff.prototype = new Employee();
+        Staff.prototype = Employee;
+
+        var p = new Person('广东','@qq.com');
+        var e = new Employee(1,2,3);
+        p.run();
+        e.run();
+    </script>
+
+</head>
+<body>
+<!--按要求实现下列问题：实现一个名为Person的类和它的子类Employee，Employee有两个子类Faculty和Staff。具体要求如下：-->
+<!--1） Person类中的属性有：姓名name（String类型），地址address（String类型），-->
+<!--电话号码telphone（String类型）和电子邮件地址email（String类型）；-->
+<!--2） Employee类中的属性有：办公室office（String类型），工资wage（数字类型），受雇日期hiredate（String类型）；-->
+<!--3） Faculty类中的属性有：学位degree（String类型），级别level（String类型）；-->
+<!--4） Staff类中的属性有：职务称号duty（String类型）。-->
+<!--5） 使用原型的继承方法，用js设计类之间的继承关系-->
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array类使用</title>
+</head>
+<body>
+
+<!--需求-->
+<!--Wechat收购Baidu，电话号码相同的人当作是同一个人，合并后salary相加，其他属性保留Wechat的数据，新的Baidu的员工重新生成id,salary涨幅20%-->
+<!--统计收购后的员工平均工资，最高工资，最低工资，male的平均工资，female的平均工资-->
+<!--找出收购后工资高于8000的员工姓名和电话号码，按薪水从高到低排序-->
+<!--找出收购前后工资涨幅最高的员工姓名和电话号码，以及涨幅的百分比-->
+<!--找出收购后重名最多的三个姓名，统一出他们的平均年龄-->
+    <script type="text/javascript">
+        var baidu = new Array(
+            {id:1, name:'tommy', phone:'1111',gender:'male',age:18, salary:10000},
+        {id:2, name:'jerry', phone:'2222',gender:'male',age:28, salary:10000},
+        {id:3, name:'raobin', phone:'3333',gender:'female',age:14, salary:1200},
+        {id:4, name:'binbin', phone:'4444',gender:'male',age:23, salary:9800},
+        {id:5, name:'arthur', phone:'5555',gender:'female',age:22, salary:10000}
+        );
+
+        var wechat = new Array(
+            {id:1, name:'tommy', phone:'1111',gender:'male',age:20, salary:40000},
+        {id:2, name:'allen', phone:'6666',gender:'male',age:34, salary:15800},
+        {id:3, name:'raobin', phone:'3333',gender:'female',age:16, salary:2300},
+        {id:4, name:'harvey', phone:'7777',gender:'male',age:30, salary:29800},
+        {id:5, name:'yuyu', phone:'8888',gender:'female',age:27, salary:7000}
+        );
+
+        for (index2 in baidu){
+            var flag = false;
+            for (index1 in wechat){
+                if(wechat[index1].phone==baidu[index2].phone){
+                    wechat[index1].salary+=baidu[index2].salary;
+                    flag = true;
+                }
+            }
+            if(flag == false){
+                baidu[index2].id=wechat.length;
+                baidu[index2].salary=parseInt(baidu[index2].salary*1.2);
+                wechat.push(baidu[index2]);
+            }
+        }
+        console.log(wechat);
+
+        /*平均工资*/
+        var avg = function (array) {
+            var sum = 0;
+            for(index3 in array){
+                sum += array[index3].salary;
+            }
+            return sum/array.length;
+        }
+
+        /*最高工资*/
+        var highest = function(array){
+            var high = 0;
+            for(index4 in array) {
+                if (high < array[index4].salary) {
+                    high = array[index4].salary;
+                }
+            }
+            return high;
+        }
+
+        /*male/female的平均工资*/
+        var avgtosex = function (array,sex) {
+            var sum = 0;
+            for(index5 in array){
+                if(array[index5].gender==sex) {
+                    sum += array[index5].salary;
+                }
+            }
+            return sum/array.length;
+        }
+
+        console.log("平均工资:"+avg(wechat));
+        console.log("最高工资:"+highest(wechat));
+        console.log("male的平均工资:"+avgtosex(wechat,"male"));
+        console.log("female的平均工资:"+avgtosex(wechat,"female"));
+
+        /*按薪水从高到低排序*/
+        var sortSalary = wechat.filter(function (element) {
+            if(element.salary>8000){
+                return {phont:element.phone,salary:element.salary};
+            }
+        }).map(function (value) {
+            return {name:value.name,phone:value.phone};
+        }).sort(function(a,b){
+            return b-a;
+        })
+        console.log(sortSalary);
+
+
+        var wechat0 = new Array(
+            {id:1, name:'tommy', phone:'1111',gender:'male',age:20, salary:40000},
+            {id:2, name:'allen', phone:'6666',gender:'male',age:34, salary:15800},
+            {id:3, name:'raobin', phone:'3333',gender:'female',age:16, salary:2300},
+            {id:4, name:'harvey', phone:'7777',gender:'male',age:30, salary:29800},
+            {id:5, name:'yuyu', phone:'8888',gender:'female',age:27, salary:7000}
+        );
+
+
+        var riseHighest = 0;
+        var empRiseHigh = {name:'',phone:'',rise:''};
+        wechat.forEach(function (element) {
+            for(index in wechat0) {
+                if (element.phone == wechat0[index].phone) {
+                    var rise = element.salary/wechat0[index].salary;
+                    if(rise > riseHighest){
+                        riseHighest = rise;
+                        empRiseHigh.name = element.name;
+                        empRiseHigh.phone = element.phone;
+                        empRiseHigh.rise = rise;
+                    }
+                }
+            }
+        });
+
+        console.log("涨幅最高的员工:"
+            +"员工姓名:"+empRiseHigh.name
+            +"电话号码:"+empRiseHigh.phone
+            +"涨幅百分比:"+empRiseHigh.rise);
+
+        /*找出收购后重名最多的三个姓名，统一出他们的平均年龄*/
+        var baidu0 = new Array(
+            {id:1, name:'tommy', phone:'1111',gender:'male',age:18, salary:10000},
+            {id:2, name:'jerry', phone:'2222',gender:'male',age:28, salary:10000},
+            {id:3, name:'raobin', phone:'3333',gender:'female',age:14, salary:1200},
+            {id:4, name:'binbin', phone:'4444',gender:'male',age:23, salary:9800},
+            {id:5, name:'arthur', phone:'5555',gender:'female',age:22, salary:10000}
+        );
+
+        var wechat2 = new Array();
+        for (index2 in baidu0){
+            for (index1 in wechat0){
+                if(wechat0[index1].name==baidu0[index2].name){
+                    var ele = {name:'',count:1,avgAge:'',sumAge:''};
+                    ele.name = wechat0[index1].name;
+                    ele.count += 1;
+                    ele.sumAge += wechat0[index1].age;
+                    wechat2.push(ele);
+                }
+            }
+        }
+        var repeatNameArr = wechat2.sort(function (a,b) {
+            return b.count-a.count;
+        }).map(function (value) {
+            value.avgAge = value.sumAge - value.count;
+            return {name:value.name,count:value.count,avgAge:value.avgAge};
+        });
+        console.log(repeatNameArr);
+
+    </script>
+
+</body>
+</html>

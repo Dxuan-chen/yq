@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var seatsArr = [
+            [1,1,0,0,0,0,0,0,1,1],
+            [1,1,1,1,1,1,1,1,2,2],
+            [2,2,1,1,2,2,1,1,1,1],
+            [1,1,3,3,1,2,2,1,1,1],
+            [1,1,0,0,0,0,0,0,1,1],
+            [1,1,0,1,1,1,1,0,1,1],
+            [1,1,0,1,1,1,1,0,1,1],
+        ];
+
+        for (index1 in seatsArr){
+            for (index2 in seatsArr[0]){
+                if(seatsArr[index1][index2]==0){
+                    document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;");
+                }else if(seatsArr[index1][index2]==1){
+                    document.writeln("<image src='../image/seat.png'/>");
+                }else if(seatsArr[index1][index2]==2){
+                    document.writeln("<image src='../image/seat_used.png'/>");
+                }else if(seatsArr[index1][index2]==3){
+                    document.writeln("<image src='../image/seat_checked.png'/>");
+
+                }
+            }
+            document.writeln("<br>");
+        }
+
+
+    </script>
+
+</body>
+</html>

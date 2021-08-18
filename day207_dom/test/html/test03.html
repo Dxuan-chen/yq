@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        var addDivobj = document.createElement('div');
+        addDivobj.textContent = '添加第一个标签';
+
+        var bodyHtmlCollection = document.getElementsByTagName('body');
+        bodyHtmlCollection[0].appendChild(addDivobj);
+
+    </script>
+</body>
+</html>

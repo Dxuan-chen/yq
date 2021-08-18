@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var dataArray = new Array(2);
+        console.log(dataArray.length);
+        console.log(dataArray);
+        console.log(dataArray[0]);
+        var dataArray2 = new Array([1,2,3,4],[1,2,3],[1,2]);
+        console.log(dataArray2);
+        console.log(dataArray2[0][0]);
+        console.log(dataArray2[0][1]);
+        console.log(dataArray2[0]);
+
+        var dataArray3 = new Array({name:'xiaoming'},{aliasname:'liming'});
+        console.log(dataArray3[0].name);
+        console.log(dataArray3[0]);
+        console.log(dataArray3[1]);
+        var dataArray4 = new Array('a','b',1,2,"b");
+        console.log(dataArray4.indexOf('b'));
+        console.log(dataArray4.lastIndexOf('b'));
+
+        dataArray4.push(3,4);
+        console.log('------------------')
+        console.log(dataArray4.pop());
+        console.log(dataArray4.pop());
+        console.log(dataArray4.pop());
+        console.log(dataArray4.pop());
+        console.log(dataArray4.pop());
+        console.log(dataArray4.pop());
+        console.log(dataArray4.pop());
+        console.log(dataArray4.pop());
+
+        var dataArray5 = dataArray4.join("|");
+        console.log(dataArray5);
+        console.log(dataArray4);
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

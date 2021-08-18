@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="divcls">
+    第一个div
+</div>
+<div class="divcls">
+    第二个div
+</div>
+<div class="divcls">
+    第三个div
+</div>
+    <script>
+
+        var htmlCollectionObj = document.getElementsByTagName("div");
+
+        for(var i = 0;i < htmlCollectionObj.length;i ++){
+            console.log(htmlCollectionObj.item(i));
+        }
+        console.log(htmlCollectionObj);
+
+        console.log('---------------');
+
+        // 获取匹配此选择器的第一个元素
+        var firstDivobj = document.querySelector(".divcls");
+        console.log(firstDivobj.textContent);
+        var nodeList = document.querySelectorAll(".divcls");
+        console.log(nodeList);
+        nodeList.forEach(function(value) {
+            console.log(value);
+            }
+        );
+
+        console.log('---------本质区别---------')
+        console.log(htmlCollectionObj);
+        //获取以HTMLCollection对象来描述子节点
+        console.log(htmlCollectionObj.item(0).children);
+        //获取以NodeList对象来描述子节点
+        console.log(htmlCollectionObj.item(0).childNodes);
+
+
+    </script>
+
+</body>
+</html>

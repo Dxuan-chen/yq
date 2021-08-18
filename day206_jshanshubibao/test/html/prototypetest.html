@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        function Dog(name,breed,weight) {
+            this.name = name;
+            this.breed = breed;
+            this.weight = weight;
+
+            //将复用资源写到对象的原型
+            Dog.prototype.age=10;
+            Dog.prototype.bark=function () {
+                if(this.weight > 25){
+                    return this.name + "WOOF!";
+                }else {
+                    return this.name + "says WOOF!";
+                }
+            };
+        };
+
+        var fido = new Dog("Fido", "柴犬", 38);
+        var fluffy = new Dog("Fluffy", "贵宾", 30);
+        var spot = new Dog("Spot", "吉娃娃", 10);
+
+        console.log(fido.bark===fluffy.bark);
+        console.log(fluffy.bark===spot.bark);
+        console.log(fluffy.bark===spot.bark);
+        fido.age = 12;
+        console.log(fido.age);
+        console.log(fluffy.age);
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

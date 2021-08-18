@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form action="/day210/RegisterServlet" method="post" >
+        用户名：<input type="text" name="username"><br>
+        密码：<input type="password" name="password"><br>
+        性别：<input type="radio" name="sex" value="男">男<input type="radio" name="sex" value="女">女<br>
+        爱好：<input type="checkbox" value="足球" name="hobby">足球
+        <input type="checkbox" value="篮球" name="hobby">篮球
+        <input type="checkbox" value="排球" name="hobby">排球
+        <input type="checkbox" value="羽毛球" name="hobby">羽毛球<br>
+        所在城市：
+        <select name="city">
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+            <option value="guangzhou">广州</option>
+            <option value="shenzhen">深圳</option>
+            <option value="hangzhou">杭州</option>
+        </select><br>
+        <input type="submit" value="点击注册">
+    </form>
+
+</body>
+</html>

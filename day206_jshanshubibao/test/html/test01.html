@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+        function Person(name){
+            var _age;
+
+            function setAge(n){
+                _age = n;
+            };
+
+            function getAge() {
+                return _age;
+            }
+
+            return {
+                name: name,
+                setAge: setAge,
+                getAge: getAge
+            };
+        }
+
+        var p = Person('李四');
+        p.setAge(30);
+        console.log(p.getAge());
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

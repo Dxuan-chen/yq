@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+
+</head>
+<body>
+
+    <div>
+        <h2>购物车列表</h2>
+        <ul class="shopcart">
+            <li class="food">
+                <span name="food-name">肉夹馍</span>
+                <span class="unit-price">15.3</span>
+                <span class="count">3</span>
+            </li>
+            <li class="food">
+                <span name="food-name">烧鹅饭</span>
+                <span class="unit-price">21</span>
+                <span class="count">2</span>
+            </li>
+            <li class="food">
+                <span name="food-name">水饺</span>
+                <span class="unit-price">18</span>
+                <span class="count">1</span>
+            </li>
+            <li class="food">
+                <span name="food-name">可乐</span>
+                <span class="unit-price">9</span>
+                <span class="count">4</span>
+            </li>
+        </ul>
+    </div>
+    <div class="shopcart-bar">
+        <h3 class="total-price"></h3>
+        300元起送
+        <h3 class="btn">立即购买</h3>
+    </div>
+
+    <script type="text/javascript">
+        var foods = document.querySelectorAll('li');
+        var totalPrice = 0;
+        foods.forEach(function (food) {
+            var price = food.querySelector('.unit-price').textContent;
+            var count = food.querySelector('.count').textContent;
+            totalPrice += price*count;
+        })
+
+        var cart = document.getElementsByClassName('shopcart-bar');
+        cart.item(0).querySelector('.total-price').textContent = totalPrice;
+
+        console.log(cart.item(0));
+        startPrice = 100;
+        last = totalPrice-startPrice;
+        if(last < 0){
+            cart.item(0).childNodes.item(2).textContent = "还差"+parseInt(-last)+"元起送";
+            var purchase = cart.item(0).querySelector(".btn");
+            cart.item(0).removeChild(purchase);
+        }else {
+            var lastObj = cart.item(0).childNodes.item(2);
+            cart.item(0).removeChild(lastObj);
+        }
+
+    </script>
+
+</body>
+</html>

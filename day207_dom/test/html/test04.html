@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/css">
+        #table{
+            border: 1px solid deeppink
+        }
+        #tr{
+            width: 300px;
+            height: 50px
+        }
+        #th{
+            width: 100px;
+            height: auto
+        }
+        #td{
+            width: 100px;
+            height: auto
+        }
+    </script>
+
+    <script type="text/javascript">
+
+        function add(){
+            var trElement = document.createElement('tr');
+            var tdElement1 = document.createElement('td');
+            var tdElement2 = document.createElement('td');
+            var tdElement3 = document.createElement('td');
+
+            tdElement1.textContent = 'a';
+            tdElement2.textContent = 'b';
+            tdElement3.textContent = 'c';
+
+            trElement.appendChild(tdElement1);
+            trElement.appendChild(tdElement2);
+            trElement.appendChild(tdElement3);
+
+
+            var tables = document.getElementsByTagName('tbody');
+            tables[0].appendChild(trElement);
+
+        }
+
+        function deltr(){
+
+            var table = document.getElementsByTagName('tbody').item(0);
+
+            var trr = table.lastElementChild;
+
+            table.removeChild(trr);
+
+        }
+
+    </script>
+</head>
+<body>
+
+    <input id="addtr" type="button" value="添加" onclick="add()">
+    <input id="deltr" type="button" value="删除" onclick="deltr()">
+
+    <table class="table01">
+    <tr>
+        <th>a</th>
+            <th>b</th>
+            <th>c</th>
+        </tr>
+    </table>
+
+
+
+</body>
+</html>
